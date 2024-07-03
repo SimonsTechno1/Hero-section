@@ -2,15 +2,14 @@ body, html {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
+  background-color: #F0F6FE;
 }
 
 .container {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
-  padding: 20px;
-  background-color: #e8f0fe;
+  height: 80vh;
   position: relative;
   overflow: hidden;
 }
@@ -18,52 +17,58 @@ body, html {
 .side-design {
   position: absolute;
   bottom: 0;
-  left: 0;
-  width: 15%;
+  left: -10%;
+  width: 17%; /* Adjust width to match the design */
 }
 
 .circle {
   position: absolute;
   top: 0;
-  left: 10%;
-  width: 30%;
+  left: 0; /* Adjust left to match the design */
+  width: 30%; /* Adjust width to match the design */
 }
 
-.search-bottom {
+.side-triangle {
   position: absolute;
-  bottom: 10%;
-  left: 10%;
-  width: 20%;
+  top: 0;
+  right: 0;
+  width: 5.75%; /* Adjust width to match the design */
+  z-index: 1; /* Ensure it appears on top */
 }
 
 .content {
   display: flex;
   width: 100%;
-  max-width: 1200px;
-  justify-content: space-between;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
 }
 
-.column-wrapper {
-  flex: 1;
+.left-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 55%; /* Adjust width to match the design */
+  padding: 20px;
+  z-index: 1;
+   /* Center align the text */
+}
+
+.right-column {
+  width: 45%; /* Adjust width to match the design */
+  height: 100%; /* Ensure it takes full height of container */
+  padding: 0;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.left-column, .right-column {
-  width: 100%;
-  padding: 20px;
-}
-
-.left-column {
-  text-align: left;
-  z-index: 1;
-}
-
 .heading {
   color: #00263e;
-  font-size: 2rem;
+  font-size: 2.5rem; /* Adjust font-size to match the design */
   margin-bottom: 20px;
+  line-height: 1.2; /* Adjust line-height for better spacing */
 }
 
 .search-form {
@@ -73,6 +78,8 @@ body, html {
   border-radius: 30px;
   padding: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  max-width: 400px; /* Adjust max-width for larger search bar */
 }
 
 .search-input {
@@ -93,55 +100,64 @@ body, html {
   align-items: center;
   justify-content: center;
   padding: 10px;
+  transition: transform 0.3s ease;
+}
+
+.search-input::placeholder {
+  color: #00263e;
 }
 
 .search-submit-btn svg {
-  fill: #0384FB;
+  fill: #F0F6FE;
+  width: 25px; /* Adjust width */
 }
 
-.search-submit-btn:hover {
-  transform: scale(1.1);
+.search-submit-btn:active svg {
+  transform: scale(0.9); /* Animation to scale */
 }
 
 .video-container {
   position: relative;
   width: 100%;
+  height: 100%;
 }
 
 .video-container video {
   width: 100%;
-  height: auto;
-  border-radius: 20px;
+  height: 100%;
+  object-fit: cover; /* Ensure the video covers the entire container */
+  border-radius: 80px 40px 0 0; /* Adjust border-radius if needed */
   overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .watch-video-button {
   position: absolute;
   bottom: 20px;
   right: 20px;
-  border-radius: 50%;
-  padding: 10px;
+  background-color: transparent;
+  color: #fff;
+  border-radius: 50px;
+  padding: 10px 20px;
   cursor: pointer;
   border: none;
   display: flex;
   align-items: center;
   gap: 5px;
-  background: transparent;
+  transition: background-color 0.3s ease;
 }
 
 .watch-video-button svg {
   fill: white;
 }
 
+.watch-video-button:hover {
+  background-color: transparent;
+}
+
 @media (max-width: 768px) {
   .content {
     flex-direction: column;
     align-items: center;
-  }
-
-  .column-wrapper {
-    width: 100%;
   }
 
   .left-column, .right-column {
